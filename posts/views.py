@@ -4,10 +4,10 @@ from rest_framework.permissions import IsAuthenticated
 
 from posts.serializers import PostsSerializer
 from posts.models import Posts
-from posts.mixins import LikeDislikeMixins
+from posts.mixins import LikeMixins, DisLikeMixins
 
 
-class PostsModelViewsSet(LikeDislikeMixins, ModelViewSet):
+class PostsModelViewsSet(LikeMixins, DisLikeMixins, ModelViewSet):
 
     queryset = Posts.objects.all()
     serializer_class = PostsSerializer
