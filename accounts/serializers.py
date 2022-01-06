@@ -21,7 +21,7 @@ class UserCreateSerializer(serializers.Serializer):
             raise exceptions.ValidationError({"Password": 'Password is too short'})
         else:
             if password == password_repeat:
-                user = User.objects.create(username=username,)
+                user = User.objects.create(username=username)
                 user.set_password(password)
                 user.is_active = False
                 user.save()
