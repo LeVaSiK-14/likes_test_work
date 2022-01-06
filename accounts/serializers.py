@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from rest_framework import exceptions
+from rest_framework.viewsets import ModelViewSet
 
 User = get_user_model()
 
@@ -28,3 +29,10 @@ class UserCreateSerializer(serializers.Serializer):
                 return user
             else:
                 raise exceptions.ValidationError({"Password": 'Passwords do not match'})
+
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', ]

@@ -6,12 +6,18 @@ from rest_framework import serializers, status
 
 from django.contrib.auth import get_user_model
 
-from accounts.serializers import UserCreateSerializer
+from accounts.serializers import UserCreateSerializer, UserSerializer
 
 User = get_user_model()
+
 
 class UserCreateAPIView(CreateAPIView):
 
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
 
+
+class UserModelViewSet(ModelViewSet):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
