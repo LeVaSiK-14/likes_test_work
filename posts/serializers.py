@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.fields import ReadOnlyField
 from posts.models import Posts
 
 class PostsSerializer(serializers.ModelSerializer):
@@ -8,5 +7,5 @@ class PostsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Posts
-        fields = ['id', 'author', 'title', 'description', 'created_at', 'likes', 'dislikes']
-        read_only_fields = ['created_at', 'likes', 'dislikes']
+        fields = ['id', 'author', 'title', 'description', 'created_at', 'likes', 'dislikes', ]
+        read_only_fields = ['created_at', 'likes', 'dislikes', ]
