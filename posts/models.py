@@ -5,8 +5,8 @@ User = get_user_model()
 
 class Posts(models.Model):
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    title = models.CharField(verbose_name='Заголовок', max_length=255)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     likes = models.PositiveIntegerField(default=0)
