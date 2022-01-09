@@ -1,6 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
-from posts import serializers
 
 
 from posts.serializers import PostsSerializer
@@ -12,6 +11,6 @@ class PostsModelViewsSet(LikeMixins, DisLikeMixins, ModelViewSet):
 
     queryset = Posts.objects.all()
     serializer_class = PostsSerializer
-    permission_classes = [IsAuthenticated, ]
-
-
+    permission_classes = [
+        IsAuthenticated,
+    ]
