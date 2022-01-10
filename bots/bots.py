@@ -57,7 +57,7 @@ class GeneratePost:
     def generate_post(self, users):
         posts = []
         for u in users:
-            url = f"http://localhost:8000/api/users/{u['id']}/add_post/"
+            url = f"http://0.0.0.0:8000/api/users/{u['id']}/add_post/"
             access_token = u["access"]
 
             for amount in range(self.amount_post):
@@ -88,8 +88,8 @@ class addLike:
             for post in posts:
 
                 urls = [
-                    f"http://127.0.0.1:8000/api/posts/{post['id']}/set_like/",
-                    f"http://127.0.0.1:8000/api/posts/{post['id']}/set_dislike/",
+                    f"http://0.0.0.0:8000/api/posts/{post['id']}/set_like/",
+                    f"http://0.0.0.0:8000/api/posts/{post['id']}/set_dislike/",
                 ]
 
                 response = requests.post(
