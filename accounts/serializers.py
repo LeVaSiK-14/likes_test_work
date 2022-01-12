@@ -7,7 +7,6 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     posts = PostsSerializer(many=True, read_only=True)
 
     class Meta:
@@ -18,7 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegistartionSerializer(serializers.ModelSerializer):
 
     class Meta:
-
         model = User
         fields = ['id', 'username', 'password']
         extra_kwargs = {
@@ -34,7 +32,6 @@ class UserRegistartionSerializer(serializers.ModelSerializer):
             return value
 
     def create(self, validated_data):
-
         username = validated_data['username']
         password = validated_data['password']
 
